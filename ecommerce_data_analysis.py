@@ -181,7 +181,7 @@ else:
     ax.set_xlabel("Total Quantity")
     ax.set_ylabel("Produk")
     fig.tight_layout()
-    st.pyplot(fig)
+    st.pyplot(fig5)
 
 
 """## Analisis multivariate pada kolom numerikal"""
