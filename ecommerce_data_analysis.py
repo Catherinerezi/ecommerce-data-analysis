@@ -178,26 +178,27 @@ st.pyplot(fig4)
 
 """#Q5. Produk apa yang paling banyak dibeli dalam jumlah besar (Quantity > 100)?"""
 
-bulk_orders = df_ready[df_ready["Quantity"] > 100]
-
-bulk_top_products = bulk_orders.groupby("Description")["Quantity"].sum().sort_values(ascending=False).head(10).reset_index()
-
 st.header("Q5. Produk dengan pembelian jumlah besar")
+
+df_ready["Quantity"] = pd.to_numeric(df_ready["Quantity"], errors="coerce")
 
 qty_threshold = st.sidebar.number_input("Minimum Quantity (bulk)", 1, 1000, 100, 1)
 top_n = st.sidebar.slider("Top N", 5, 30, 10)
 
 bulk_orders = df_ready[df_ready["Quantity"] > qty_threshold]
-bulk_top_products = (bulk_orders.groupby("Description")["Quantity"]
-                     .sum().sort_values(ascending=False).head(top_n).reset_index())
+bulk_top_products = (
+    bulk_orders.groupby("Description", as_index=False)["Quantity"].sum()
+    .sort_values("Quantity", ascending=False)
+    .head(top_n)
+)
 
 if bulk_top_products.empty:
     st.warning("Tidak ada transaksi di atas threshold yang dipilih.")
 else:
     st.dataframe(bulk_top_products)
 
-    fig5, ax = plt.subplots(figsize=(8, 4))
-    sns.barplot(data=bulk_top_products, x="Quantity", y="Description", ax=ax)
+    fig5, ax5 = plt.subplots(figsize=(8, 4))
+    sns.barplot(data=bulk_top_products, x="Quantity", y="Description", ax=ax5)
     ax5.set_title(f"Top {top_n} Produk dengan Pembelian Jumbo (Quantity > {qty_threshold})")
     ax5.set_xlabel("Total Quantity")
     ax5.set_ylabel("Produk")
@@ -205,7 +206,8 @@ else:
     st.pyplot(fig5)
 
 
-"""## Analisis multivariate pada kolom numerikal"""
+
+"""#Analisis multivariate pada kolom numerikal"""
 
 numerical_df = df.select_dtypes(include=['float64', 'int64'])
 
