@@ -282,10 +282,6 @@ bulk_top_products.head(10)
 """Hasilnya ditampilkan dalam tabel diatas dalam 10 data teratas dengan alasan untuk mencapai titik fokus dalam kepuitusan bisnis yang lebih efektif, sehingga hanya memusatkan keputusan bisnis pada hal lebih urgent dibandingkan dengan hal lain. 10 data inilah yang akan divualisasikan.
 """
 
-import streamlit as st
-import matplotlib.pyplot as plt
-import seaborn as sns
-
 st.header("Q5. Produk dengan pembelian jumlah besar")
 
 qty_threshold = st.sidebar.number_input("Minimum Quantity (bulk)", 1, 1000, 100, 1)
