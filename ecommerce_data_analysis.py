@@ -175,12 +175,12 @@ if bulk_top_products.empty:
 else:
     st.dataframe(bulk_top_products)
 
-    fig, ax = plt.subplots(figsize=(8, 4))
+    fig5, ax = plt.subplots(figsize=(8, 4))
     sns.barplot(data=bulk_top_products, x="Quantity", y="Description", ax=ax)
-    ax.set_title(f"Top {top_n} Produk dengan Pembelian Jumbo (Quantity > {qty_threshold})")
-    ax.set_xlabel("Total Quantity")
-    ax.set_ylabel("Produk")
-    fig.tight_layout()
+    ax5.set_title(f"Top {top_n} Produk dengan Pembelian Jumbo (Quantity > {qty_threshold})")
+    ax5.set_xlabel("Total Quantity")
+    ax5.set_ylabel("Produk")
+    fig5.tight_layout()
     st.pyplot(fig5)
 
 
@@ -193,7 +193,7 @@ correlation_matrix = numerical_df.corr()
 st.header("Correlation heatmap")
 num = df_ready.select_dtypes(include=["float64","int64"])
 corr = num.corr(numeric_only=True)
-fig5, ax5 = plt.subplots()
+fig6, ax5 = plt.subplots()
 sns.heatmap(corr, annot=True, fmt=".2f", cmap="coolwarm", ax=ax5)
-ax5.set_title("Correlation (numeric)")
+ax6.set_title("Correlation (numeric)")
 st.pyplot(fig6)
