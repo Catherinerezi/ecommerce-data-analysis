@@ -17,6 +17,7 @@ This repository analyses a real-world e-commerce transactions dataset. Each row 
 | Country       | str      | Customer country                            | Required; segmentation |
 | TotalPrice*   | float    | Quantity × UnitPrice                        | Engineered |
 | Month*        | str      | Year-Month from InvoiceDate                 | Engineered |
+
 *Engineered during feature engineering.
 
 **Data quality summary.** Duplicates are checked; critical missing values in Description, InvoiceDate, and Country are removed. Numeric columns are coerced to the right types. Outliers in Quantity/UnitPrice are flagged but preserved, as they often indicate legitimate bulk purchases (B2B) rather than noise. These steps produce a clean df_ready table suitable for robust EDA.
