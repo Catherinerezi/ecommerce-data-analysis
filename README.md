@@ -3,6 +3,8 @@ Analyzing an e-commerce transactions dataset turns raw logs into decisions. It r
 
 ### Data Understanding
 
+This repository analyses a real-world e-commerce transactions dataset. Each row records a line item from an order, capturing what was bought, when, where, and at what price. Before any modelling or visualisation, the data are profiled, cleaned, and enriched to ensure that downstream findings are trustworthy and actionable.
+
 | Column        | Type     | Meaning                                    | Notes & Handling |
 |:--------------|:---------|:-------------------------------------------|:-----------------|
 | InvoiceNo     | int/str  | Unique invoice identifier                   | Dropped (ID only) |
@@ -15,3 +17,6 @@ Analyzing an e-commerce transactions dataset turns raw logs into decisions. It r
 | Country       | str      | Customer country                            | Required; segmentation |
 | TotalPrice*   | float    | Quantity × UnitPrice                        | Engineered |
 | Month*        | str      | Year-Month from InvoiceDate                 | Engineered |
+*Engineered during feature engineering.
+
+**Data quality summary.** Duplicates are checked; critical missing values in Description, InvoiceDate, and Country are removed. Numeric columns are coerced to the right types. Outliers in Quantity/UnitPrice are flagged but preserved, as they often indicate legitimate bulk purchases (B2B) rather than noise. These steps produce a clean df_ready table suitable for robust EDA.
