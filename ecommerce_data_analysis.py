@@ -387,39 +387,6 @@ st.pyplot(fig6)
   - Relevansi penggunaan (seasonal, kebutuhan khusus)
   - Bundle yang meningkatkan perceived value
 
-#KESIMPULAN AKHIR:
-1. Data Understanding
-  - Dataset terdiri dari data transaksi penjualan online, termasuk kolom seperti InvoiceNo, Description, Quantity, InvoiceDate, UnitPrice, CustomerID, dan Country.
-  - Ditemukan adanya missing values di beberapa kolom penting (Description, CustomerID, Country), yang harus dibersihkan untuk analisis yang akurat.
-  - Data memiliki format waktu (InvoiceDate) yang perlu dikonversi ke format datetime agar dapat dimanipulasi berdasarkan waktu.
-
-2. Feature Engineering
-  - Dihapus baris dan kolom dengan data kosong dan tidak perlu di kolom kunci agar grouping tidak menghasilkan noise.
-  - Dilakukan konversi InvoiceDate ke format datetime untuk kebutuhan analisis berbasis waktu.
-  - Dibuat kolom Month dari InvoiceDate untuk analisis tren penjualan per bulan.
-  - (Opsional) Dibuat kolom TotalPrice = Quantity * UnitPrice untuk potensi analisis pendapatan.
-
-3. Analisis Berdasarkan Pertanyaan (1–5)
-  1. Pertanyaan 1: Produk apa yang paling banyak terjual?
-    - Dilakukan agregasi total Quantity per Description.
-    - Produk terlaris ternyata memiliki volume tinggi, mengindikasikan potensi bundling, diskon, atau pengulangan pembelian.
-
-  2. Pertanyaan 2: Pola pembelian bulanan seperti apa?
-    - Dikelompokkan berdasarkan Month dan dijumlahkan total Quantity.
-    - Terlihat adanya fluktuasi penjualan, dan potensi lonjakan di bulan tertentu (misalnya menjelang akhir tahun).
-
-  3. Pertanyaan 3: Negara mana yang paling banyak membeli?
-    - Data dikelompokkan berdasarkan Country, diurutkan berdasarkan total Quantity.
-    - Terlihat bahwa mayoritas penjualan berasal dari beberapa negara dominan, sedangkan negara lain berkontribusi kecil.
-
-  4.  Pertanyaan 4: Produk apa yang paling populer di setiap negara?
-    - Dikelompokkan berdasarkan kombinasi Country dan Description, kemudian dihitung total Quantity.
-    - Diperlukan pembersihan data sebelum analisis karena kombinasi ini sangat sensitif terhadap missing value.
-
-  5.  Pertanyaan 5: Produk apa yang paling sering dibeli dalam jumlah besar (Quantity > 100)?
-    - Difilter data untuk transaksi besar, lalu di-group berdasarkan Description.
-    - Mengungkap produk-produk dengan permintaan dalam jumlah besar yang cocok untuk strategi grosir atau pelanggan B2B.
-
 #Insight Umum (Gabungan dari Semua Pertanyaan)
   1. Permintaan terpusat pada produk tertentu — Terlihat konsistensi permintaan tinggi untuk beberapa produk, baik di level global maupun per negara.
 
