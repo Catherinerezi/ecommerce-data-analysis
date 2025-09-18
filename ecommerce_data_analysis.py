@@ -103,20 +103,41 @@ st.pyplot(fig)
 
 """#Q2. Bagaimana tren pembelian per bulan selama tahun berjalan?"""
 
-df_before = df[["InvoiceDate", "Quantity"]].head(5)
-df_before
-df["InvoiceDate"] = pd.to_datetime(df["InvoiceDate"], errors='coerce')
-df["Month"] = df["InvoiceDate"].dt.to_period("M")
-df_after = df[["InvoiceDate", "Month", "Quantity"]].head(5)
-
-monthly_trend = df_ready.groupby("Month")["Quantity"].sum().reset_index()
+import matplotlib.dates as mdates
 
 st.header("Q2 — Monthly trend")
-monthly = df_ready.groupby("Month")["Quantity"].sum().reset_index()
+
+# Pastikan kolom numerik benar2 numerik
+df_ready["Quantity"]   = pd.to_numeric(df_ready["Quantity"], errors="coerce")
+df_ready["UnitPrice"]  = pd.to_numeric(df_ready["UnitPrice"], errors="coerce")
+df_ready["TotalPrice"] = df_ready["Quantity"] * df_ready["UnitPrice"]
+
+# Pastikan kolom Month ada & berupa string YYYY-MM
+if "Month" not in df_ready.columns:
+    df_ready["InvoiceDate"] = pd.to_datetime(df_ready["InvoiceDate"], errors="coerce")
+    df_ready = df_ready.dropna(subset=["InvoiceDate"])
+    df_ready["Month"] = df_ready["InvoiceDate"].dt.to_period("M").astype(str)
+
+# Grouping aman (tanpa concat string)
+monthly = (
+    df_ready
+    .groupby("Month", as_index=False)
+    .agg(Quantity=("Quantity", "sum"))
+)
+
+# Konversi tipe & urutkan waktu
+monthly["Quantity"] = pd.to_numeric(monthly["Quantity"], errors="coerce").fillna(0).astype(float)
+monthly["Month"] = pd.to_datetime(monthly["Month"], format="%Y-%m", errors="coerce")
+monthly = monthly.dropna(subset=["Month"]).sort_values("Month")
+
+# Plot
 fig2, ax2 = plt.subplots()
 sns.lineplot(data=monthly, x="Month", y="Quantity", marker="o", ax=ax2)
-ax2.tick_params(axis="x", rotation=45)
 ax2.set_title("Monthly Quantity")
+ax2.set_xlabel("Month")
+ax2.set_ylabel("Total Quantity")
+ax2.xaxis.set_major_formatter(mdates.DateFormatter("%Y-%m"))
+fig2.autofmt_xdate()
 st.pyplot(fig2)
 
 """#Q3. Negara mana yang memiliki volume pembelian terbesar?"""
