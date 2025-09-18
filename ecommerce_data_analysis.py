@@ -178,7 +178,7 @@ st.pyplot(fig4)
 
 """#Q5. Produk apa yang paling banyak dibeli dalam jumlah besar (Quantity > 100)?"""
 
-st.header("Q5. Produk dengan pembelian jumlah besar")
+st.header("Q5. Product with mass sold quantity")
 
 df_ready["Quantity"] = pd.to_numeric(df_ready["Quantity"], errors="coerce")
 
@@ -209,14 +209,19 @@ else:
 
 """#Analisis multivariate pada kolom numerikal"""
 
-numerical_df = df.select_dtypes(include=['float64', 'int64'])
-
-correlation_matrix = numerical_df.corr()
-
 st.header("Correlation heatmap")
-num = df_ready.select_dtypes(include=["float64","int64"])
-corr = num.corr(numeric_only=True)
-fig6, ax5 = plt.subplots()
-sns.heatmap(corr, annot=True, fmt=".2f", cmap="coolwarm", ax=ax5)
-ax6.set_title("Correlation (numeric)")
-st.pyplot(fig6)
+
+numeric_cols = df_ready.select_dtypes(include=["number"]).columns
+num = df_ready[numeric_cols].apply(pd.to_numeric, errors="coerce")
+
+num = num.loc[:, num.notna().any()]
+num = num.loc[:, num.nunique(dropna=True) > 1]
+
+if num.empty or num.shape[1] < 2:
+    st.info("Not enough numeric columns for correlation heatmap.")
+else:
+    corr = num.corr(numeric_only=True)
+    fig6, ax6 = plt.subplots()
+    sns.heatmap(corr, annot=True, fmt=".2f", cmap="coolwarm", ax=ax6, square=True)
+    ax6.set_title("Correlation (numeric)")
+    st.pyplot(fig6)
