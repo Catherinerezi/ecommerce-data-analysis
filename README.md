@@ -29,20 +29,20 @@ This repository analyses a real-world e-commerce transactions dataset. Each row 
 Scope: Each row is a line item: product, quantity, price, timestamp, and country.
 
 **Type casting & formatting:**
-- Parse InvoiceDate to datetime with errors="coerce"; derive Month (YYYY-MM) for cohort analysis.
+- Parse InvoiceDate to datetime derive Month (YYYY-MM) for cohort analysis.
 - Coerce Quantity and UnitPrice to numeric.
 - Create TotalPrice as Quantity * UnitPrice (line-level revenue).
 
 **Column selection:**
 - Drop identifiers that are not analytically meaningful in aggregation: InvoiceNo, CustomerID.
-- Keep StockCode for reference if needed; keep Country, Description as analytical dimensions.
+- Keep StockCode for reference: keep Country, Description as analytical dimensions.
 
 **Missing values:**
-- Treat Description, InvoiceDate, and Country as essential; drop rows where these are missing.
+- Treat Description, InvoiceDate, and Country as essential and drop rows where these are missing.
 - After coercion, remove rows with invalid InvoiceDate.
 
 **Duplicates & header artefacts:**
-- Check for duplicate rows using df.duplicated().sum().
+- Check for duplicate rows.
 - Detect accidental “header rows” inside the body (string matches like InvoiceNo, Description, Quantity) and remove if present.
 
 **Outlier assessment (kept by design):**
@@ -52,3 +52,13 @@ Scope: Each row is a line item: product, quantity, price, timestamp, and country
 **Integrity checks:**
 - Confirm expected shape, dtypes, and descriptive statistics after each transformation.
 - Validate that TotalPrice, Quantity, and UnitPrice align logically (no negative totals, absurd prices).
+
+# Explanatory Data Analysis Visualizations Carried Out
+Visualization Type Purpose:
+
+## Which products dominate volume?
+## How does demand evolve by month?
+## Which countries purchase the most?
+## What is the top product per country?
+## Which items are bought in bulk (Quantity > threshold)?
+## Multivariate snapshot: are numeric fields aligned?
