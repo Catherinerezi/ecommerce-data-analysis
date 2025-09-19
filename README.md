@@ -59,6 +59,10 @@ Visualization Type Purpose:
 ## Which products dominate volume?
 The chart ranks the ten highest-velocity SKUs by total quantity sold. A small cadre of giftable, lightweight items that led decisively by 'WHITE HANGING HEART T-LIGHT HOLDER', with 'CREAM HEART CARD HOLDER' and 'WRAP', 'BILLBOARD FONTS DESIGN' close behind the domination of the catalogue. The distribution is top-heavy: sharp drop-off after the leaders, then a long tail of niche products. Such a profile is consistent with impulse-friendly items that ship cheaply and lend themselves to repeat or bulk orders.
 
+<p align="center">
+  <img src="https://github.com/Catherinerezi/ecommerce-data-analysis/blob/main/assets/Bar1.png" alt="Which products dominate volume" width="500">
+</p>
+
 **Current conditions:** Demand is concentrated in a handful of hero SKUs where several lines display quantities suggestive of B2B/reseller behaviour alongside retail traffic. Because the ranking is by volume rather than revenue, some leaders may be low-margin, however, margin validation is essential before scaling inventory.
 
 **Strategic direction:**
