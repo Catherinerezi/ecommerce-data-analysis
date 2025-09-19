@@ -1,4 +1,4 @@
-# ecommerce-data-analysis
+# From Invoices to Insights: E-commerce EDA
 Analyzing an e-commerce transactions dataset turns raw logs into decisions. It reveals which products truly drive volume and revenue, how demand shifts across months and countries, and where stockouts or excess inventory are likely to occur. By quantifying patterns—basket sizes, bulk-buy behavior (B2B vs. retail), and price–quantity dynamics—we can optimize assortment, pricing, and promotions instead of guessing. Feature engineering (e.g., TotalPrice, monthly cohorts) and visual EDA expose anomalies and data quality issues early, improving the reliability of every downstream model or report. The insights support concrete actions: forecast demand, prioritize high-margin items, tailor regional campaigns, and allocate inventory more efficiently. In short, rigorous EDA converts transactional noise into a roadmap for profitable growth.
 
 # Data Understanding
@@ -57,6 +57,18 @@ Scope: Each row is a line item: product, quantity, price, timestamp, and country
 Visualization Type Purpose:
 
 ## Which products dominate volume?
+The chart ranks the ten highest-velocity SKUs by total quantity sold. A small cadre of giftable, lightweight items that led decisively by 'WHITE HANGING HEART T-LIGHT HOLDER', with 'CREAM HEART CARD HOLDER' and 'WRAP', 'BILLBOARD FONTS DESIGN' close behind the domination of the catalogue. The distribution is top-heavy: sharp drop-off after the leaders, then a long tail of niche products. Such a profile is consistent with impulse-friendly items that ship cheaply and lend themselves to repeat or bulk orders.
+
+**Current conditions:** Demand is concentrated in a handful of hero SKUs where several lines display quantities suggestive of B2B/reseller behaviour alongside retail traffic. Because the ranking is by volume rather than revenue, some leaders may be low-margin, however, margin validation is essential before scaling inventory.
+
+**Strategic direction:**
+- Protect the winners: Raise safety stock and shorten reorder cycles for the top five SKUs and monitor stockouts daily.
+- Shape the assortment: Extend proven motifs (hearts, typography) and retire chronically slow tail items.
+- Monetise bulk intent: Offer bundles/multipacks around leaders to lift average order value.
+- Time promotions to seasonality: Use hero SKUs as traffic drivers to cross-sell complementary goods.
+- Price with discipline: Test unit vs. multipack pricing: prioritise SKUs with healthy contribution margins.
+- Harden supply: Dual-source top sellers and pre-book capacity ahead of peaks.
+
 ## How does demand evolve by month?
 ## Which countries purchase the most?
 ## What is the top product per country?
