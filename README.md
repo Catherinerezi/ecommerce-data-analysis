@@ -74,6 +74,18 @@ The chart ranks the ten highest-velocity SKUs by total quantity sold. A small ca
 - Harden supply: Dual-source top sellers and pre-book capacity ahead of peaks.
 
 ## How does demand evolve by month?
+The line chart tracks total quantity by month from late 2010 through 2011. After a soft start and a January trough, demand stabilises through Q1, dips in April, then builds steadily from May, accelerating into Q3–Q4 and peaking in November, a textbook holiday run up before an abrupt December pullback.
+
+<p align="center">
+  <img src="https://github.com/Catherinerezi/ecommerce-data-analysis/blob/main/assets/line.png" alt="How does demand evolve by month" width="500">
+</p>
+
+**Current conditions:**
+- Momentum concentrates in late Q3 and Q4, consistent with gifting/seasonal events and wholesale restocking.
+- Early-year volumes are fragile, with small oscillations that suggest demand is the sensitivity of the promotions.
+- The sharp December drop may reflect either post-peak cooling or partial-month data. Adviceable for completeness checks.
+- Because this view is based on volume, it may overweight in low-price SKUs. Hence, a revenue lens (TotalPrice) should be reviewed in parallel.
+
 ## Which countries purchase the most?
 ## What is the top product per country?
 ## Which items are bought in bulk (Quantity > threshold)?
