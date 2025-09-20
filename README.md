@@ -97,6 +97,10 @@ The line chart tracks total quantity by month from late 2010 through 2011. After
 ## Which countries purchase the most?
 The bar chart below ranks total quantity by country. One market (United Kingdom) dominates overwhelmingly, while a secondary cluster (Netherlands, Germany, Ireland, France) contributes materially but at a far lower order of magnitude. Beyond that sits a long tail (Sweden, Australia, Switzerland, Portugal, Norway) with fragmented, placed in low demand.
 
+<p align="center">
+  <img src="https://github.com/Catherinerezi/ecommerce-data-analysis/blob/main/assets/Bar2.png" alt="Which countries purchase the most" width="500">
+</p>
+
 **Current conditions:**
 - Volume is heavily concentrated domestically, consistent with UK as an anchor to storefront, shorter, and cheaper delivery routes.
 - Netherlands and Germany emerge as the strongest export corridors in continental Europe, proximity and logistics density likely lower friction.
@@ -114,6 +118,10 @@ The bar chart below ranks total quantity by country. One market (United Kingdom)
 ## What is the top product per country?
 The chart below surfaces the single top-selling product in each country (by total quantity). The United Kingdom leads decisively, with its hero SKU outstripping every other market by a wide margin. A second tier, Sweden and Australia, followed by Netherlands, Ireland, and France shows meaningful but far smaller peaks. Across markets, winners cluster in gift/home decor and partyware (e.g., T-light holders, cake cases, keepsakes), signalling impulse-friendly items with low shipping friction.
 
+<p align="center">
+  <img src="https://github.com/Catherinerezi/ecommerce-data-analysis/blob/main/assets/Bar3.png" alt="What is the top product per country" width="500">
+</p>
+
 **Current conditions:**
 - Demand is country-specific yet motif-consistent: different markets crown different heroes, but themes recur (hearts, candles, party cases).
 - Several countries exhibit concentrated SKU dependence, one item captures a disproportionate share of local volume.
@@ -129,6 +137,10 @@ The chart below surfaces the single top-selling product in each country (by tota
 
 ## Which items are bought in bulk (Quantity > threshold)?
 The chart below ranks top products bought in large quantities (Quantity > 100 per transaction). A familiar cast WHITE HANGING HEART T-LIGHT HOLDER, CREAM HEART CARD HOLDER, and WRAP, BILLBOARD FONTS DESIGN leads again, but here their dominance reflects like wholesale behaviour, not casual retail. The distribution is steeply top-heavy: a few SKUs account for most bulk volume, followed by a compressed tail.
+
+<p align="center">
+  <img src="https://github.com/Catherinerezi/ecommerce-data-analysis/blob/main/assets/Bar4.png" alt="Which items are bought in bulk (Quantity > threshold)" width="500">
+</p>
 
 **Current conditions:**
 - Bulk demand clusters around gift/partyware items that are lightweight, durable, and easy to ship in cartons.
@@ -147,7 +159,17 @@ The chart below ranks top products bought in large quantities (Quantity > 100 pe
 ## Multivariate snapshot: are numeric fields aligned?
 The heatmap below shows TotalPrice is driven primarily by Quantity (ρ about 0.79), while its link to UnitPrice is weak (ρ about 0.09). Quantity and UnitPrice are essentially uncorrelated, even slightly negative (ρ about −0.08). In plain terms: revenue is volume-led, not price-led; big baskets and bulk lines, rather than high unit prices, explain most variation in takings.
 
+<p align="center">
+  <img src="https://github.com/Catherinerezi/ecommerce-data-analysis/blob/main/assets/Heatmap.png" alt="Multivariate snapshot: are numeric fields aligned" width="500">
+</p>
+
 **Current conditions:**
 - Large swings in Quantity dominate revenue, this is consistent with B2B/reseller behaviour and multipack purchasing.
 - Price shifts alone have little linear association with sold units at the global level this pictured that elasticities likely vary by product/region.
 - Because TotalPrice = Quantity × UnitPrice, the strong tie to Quantity indicates quantity variance is much greater than price variance in this dataset.
+
+**Strategic direction:**
+- Availability over discounting: protect stock and service levels on high-velocity SKUs, warn to not rely on blanket price cuts to move volume.
+- Bundle & pack-size design: capture volume-led revenue with multipacks/tiers instead of margin-eroding discounts.
+- Targeted price tests: run controlled A/B by category/country to find pockets where price does move units, advice to scale only where lift > margin loss.
+- Account programmes: formalise wholesale terms for repeat bulk buyers (MOQs, volume breaks, lead-time commitments).
