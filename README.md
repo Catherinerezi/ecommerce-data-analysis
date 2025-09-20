@@ -86,7 +86,68 @@ The line chart tracks total quantity by month from late 2010 through 2011. After
 - The sharp December drop may reflect either post-peak cooling or partial-month data. Adviceable for completeness checks.
 - Because this view is based on volume, it may overweight in low-price SKUs. Hence, a revenue lens (TotalPrice) should be reviewed in parallel.
 
+**Strategic direction:**
+- Seasonality playbook: lock a calendar that ramps inventory and marketing from August, with hero-SKU bundles launching in October.
+- Supply resilience: pre-book supplier capacity and inbound freight for Oct–Nov, mandatory to raise safety stock on top movers.
+- Ops readiness: scale fulfilment staffing and carrier allocations into the peak to communicate shipping cut-offs early more effectively.
+- Pricing & promos: use price tests in shoulder months (Sep, early Oct) to set Q4 offer depth, for multipacks for bulk buyers, it could emphasise more directly.
+- Post-peak hygiene: plan December clearance and replenishment freeze to avoid overhang and convert for preparation for traffic to email/loyalty for Q1.
+- Analytics guardrails: validate December completeness, add a business-day normalisation / 3-month moving average, and repeat the chart with revenue to confirm that quantity peaks translate to value.
+
 ## Which countries purchase the most?
+The bar chart below ranks total quantity by country. One market (United Kingdom) dominates overwhelmingly, while a secondary cluster (Netherlands, Germany, Ireland, France) contributes materially but at a far lower order of magnitude. Beyond that sits a long tail (Sweden, Australia, Switzerland, Portugal, Norway) with fragmented, placed in low demand.
+
+**Current conditions:**
+- Volume is heavily concentrated domestically, consistent with UK as an anchor to storefront, shorter, and cheaper delivery routes.
+- Netherlands and Germany emerge as the strongest export corridors in continental Europe, proximity and logistics density likely lower friction.
+- The tail countries show episodic or niche demand, some spikes may reflect single wholesale buyers rather than broad retail pull.
+- As the ranking uses quantity not revenue, lightweight, low-price SKUs may inflate shares, adviseable to confirm with a TotalPrice.
+
+**Strategic direction:**
+- Defend the core (UK): guarantee service levels on hero SKUs—higher safety stock, faster replenishment, and next-day SLAs.
+- EU expansion plays: pilot localized storefronts for NL/DE/FR (language, currency, taxes), add local payment methods (e.g., iDEAL in NL), and test regional campaigns.
+- Logistics leverage: consider a Benelux 3PL hub to compress delivery times and reduce cross-border costs especially for pre-position inventory in Q4.
+- Wholesale/B2B capture: in mid-tier countries, pursue reseller outreach and multipack pricing where bulk behaviour appears.
+- Pricing & landed cost: simulate end-to-end costs (shipping, duties, VAT) and tune free-shipping thresholds per country.
+- Analytics guardrails: track share of revenue vs. quantity, repeat analysis on per-customer basis (to separate broad demand from single large buyers), and monitor returns/cancellations.
+
 ## What is the top product per country?
+The chart below surfaces the single top-selling product in each country (by total quantity). The United Kingdom leads decisively, with its hero SKU outstripping every other market by a wide margin. A second tier, Sweden and Australia, followed by Netherlands, Ireland, and France shows meaningful but far smaller peaks. Across markets, winners cluster in gift/home decor and partyware (e.g., T-light holders, cake cases, keepsakes), signalling impulse-friendly items with low shipping friction.
+
+**Current conditions:**
+- Demand is country-specific yet motif-consistent: different markets crown different heroes, but themes recur (hearts, candles, party cases).
+- Several countries exhibit concentrated SKU dependence, one item captures a disproportionate share of local volume.
+- Volumes reflect a blend of retail and small-wholesale behaviour, this spikes likely coincide with events and seasonal restocking.
+
+**Strategic direction:**
+- Defend & extend heroes: For each country’s top SKU, raise safety stock, tighten lead times, and launch closely related variants (colour/pack-size).
+- Localise merchandising: Translate copy, adapt imagery, and sequence campaigns to local holidays, need a test for bundles/multipacks around the hero in the future.
+- Regional ops: Pre-position inventory for Sweden/Australia peaks, need a trial with a Benelux hub for NL/IE/FR to compress delivery times in the future.
+- Portfolio balance: Reduce over-reliance on single items by promoting adjacent complements (holders to candles, cases to baking accessories).
+- Pricing discipline: A/B test unit vs. multipack pricing to ensure landed-cost economics (shipping, duties, VAT) remain positive by country.
+- Analytics guardrails: Track share of revenue, repeat rates, and per-customer concentration to distinguish broad market pull from reseller spikes.
+
 ## Which items are bought in bulk (Quantity > threshold)?
+The chart below ranks top products bought in large quantities (Quantity > 100 per transaction). A familiar cast WHITE HANGING HEART T-LIGHT HOLDER, CREAM HEART CARD HOLDER, and WRAP, BILLBOARD FONTS DESIGN leads again, but here their dominance reflects like wholesale behaviour, not casual retail. The distribution is steeply top-heavy: a few SKUs account for most bulk volume, followed by a compressed tail.
+
+**Current conditions:**
+- Bulk demand clusters around gift/partyware items that are lightweight, durable, and easy to ship in cartons.
+- Spikes are likely driven by resellers, events, or corporate gifting, not one-off anomalies.
+- Because the ranking is quantity-based, margin may diverge from volume; validate contribution after shipping and handling.
+- Concentration risk: a small set of SKUs underpins bulk revenue, supply hiccups there would be outsized.
+
+**Strategic direction:**
+- Stock & upstream planning: lock vendor capacity and shorter lead times for the top SKUs, this hold carton-level safety stock ahead of peaks.
+- Wholesale packaging: offer multipacks/carton sizes and publish master case quantities to improve pick efficiency and freight economics.
+- Tiered pricing: introduce volume breaks and contract pricing for verified B2B accounts; test MOQ to protect margins.
+- Assortment extensions: create close variants (colour/pack-count) around winners to capture bulk intent without fragmenting demand.
+- Targeted acquisition: build a reseller programme and prioritise regions/accounts showing repeated high-quantity orders.
+- Risk controls: monitor returns/cancellations for bulk orders and guard against stockouts with daily service-level dashboards.
+
 ## Multivariate snapshot: are numeric fields aligned?
+The heatmap below shows TotalPrice is driven primarily by Quantity (ρ about 0.79), while its link to UnitPrice is weak (ρ about 0.09). Quantity and UnitPrice are essentially uncorrelated, even slightly negative (ρ about −0.08). In plain terms: revenue is volume-led, not price-led; big baskets and bulk lines, rather than high unit prices, explain most variation in takings.
+
+**Current conditions:**
+- Large swings in Quantity dominate revenue, this is consistent with B2B/reseller behaviour and multipack purchasing.
+- Price shifts alone have little linear association with sold units at the global level this pictured that elasticities likely vary by product/region.
+- Because TotalPrice = Quantity × UnitPrice, the strong tie to Quantity indicates quantity variance is much greater than price variance in this dataset.
